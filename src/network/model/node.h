@@ -187,6 +187,7 @@ public:
    */
   void UnregisterDeviceAdditionListener (DeviceAdditionListener listener);
 
+  bool NonPromiscReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Packet>, uint16_t protocol, const Address &from);
 
 
   /**
@@ -205,7 +206,6 @@ protected:
   virtual void DoInitialize (void);
 private:
   void NotifyDeviceAdded (Ptr<NetDevice> device);
-  bool NonPromiscReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Packet>, uint16_t protocol, const Address &from);
   bool PromiscReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Packet>, uint16_t protocol,
                                  const Address &from, const Address &to, NetDevice::PacketType packetType);
   bool ReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Packet>, uint16_t protocol,
